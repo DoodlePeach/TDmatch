@@ -92,10 +92,11 @@ def distance_w2v (model, word,target_list , num) :
     word_list = []
 
     for item in target_list :
-        if item not in model.wv:
+        if item not in model:
             continue
-            
-        cosine_dict[item] = model.wv.similarity(word,item)
+
+        
+        cosine_dict[item] = model.similarity(word,item)
             
     dist_sort=sorted(cosine_dict.items(), key=lambda dist: dist[1],reverse = True)
     for item in dist_sort:
